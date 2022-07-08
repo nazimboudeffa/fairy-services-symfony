@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\Routing\Annotation\Route;
 
 class DefaultController extends AbstractController
 {
@@ -15,5 +16,15 @@ class DefaultController extends AbstractController
     {
         var_dump("it works!");
         die();
+    }
+
+    /**
+     * Hello world, avec Twig cette fois :)
+     *
+     * @Route("/hello/{name}", name="hello")
+     */
+    public function hello($name)
+    {
+        return $this->render('hello.html.twig', ['name' => $name]);
     }
 }
